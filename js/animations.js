@@ -34,8 +34,12 @@ $(document).ready(function () {
   textArea.keyup(tweetCountTracker);
   textArea.keydown(tweetCountTracker);
 
+  $('#tweet-submit').on('click',function () {
+    addTweet();
+  })
+
   function addTweet() {
-    $(element).append(
+    $('#stream').prepend(
 
       "<div class='tweet'>"+
         "<div class='content'>"+
