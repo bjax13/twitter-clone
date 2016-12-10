@@ -15,6 +15,7 @@ $(document).ready(function () {
   var charCount = $('#char-count');
   //
   var textArea = $('.tweet-compose');
+  var tweetCompose = $('.tweet-compose')
 
 
   //hides the char-count #s and tweetSubmit button.
@@ -34,11 +35,16 @@ $(document).ready(function () {
   textArea.keyup(tweetCountTracker);
   textArea.keydown(tweetCountTracker);
 
-  $('#tweet-submit').on('click',function () {
-    addTweet();
+  $('#tweet-submit').on('click',function (e) {
+      e.preventDefault(e);
+      var tweetContent = tweetCompose.val().trim();
+      addTweet(tweetContent);
+      $(tweetCompose).val('')
   })
 
-  function addTweet() {
+
+
+  function addTweet(tweetContent) {
     $('#stream').prepend(
 
       "<div class='tweet'>"+
@@ -48,7 +54,7 @@ $(document).ready(function () {
           "<span class='username'>@mybff</span>"+
 
 
-          "<p class='tweet-text'>Today is an amazing day.</p>"+
+          "<p class='tweet-text'>"+tweetContent+"</p>"+
 
 
           "<div class='tweet-actions'>"+
