@@ -37,19 +37,27 @@ $(document).ready(function () {
 
   $('#tweet-submit').on('click',function (e) {
       e.preventDefault(e);
+      //save contents to veriable
       var tweetContent = tweetCompose.val().trim();
-      addTweet(tweetContent);
+      // save avatar image to pass into addTweet function
+      var avatarImgSrc = $('#dashboard-avatar-img').attr('src');
+      //pass veriable into function to add to stream
+      addTweet(tweetContent,avatarImgSrc);
+
+
+
+      //clear contents of tweet box
       $(tweetCompose).val('')
   })
 
 
 
-  function addTweet(tweetContent) {
+  function addTweet(tweetContent,avatarImgSrc) {
     $('#stream').prepend(
 
       "<div class='tweet'>"+
         "<div class='content'>"+
-          "<img class='avatar' src='img/damenleeturks.jpg' />"+
+          "<img class='avatar' src= "+avatarImgSrc+" />"+
           "<strong class='fullname'>My BFF</strong>"+
           "<span class='username'>@mybff</span>"+
 
