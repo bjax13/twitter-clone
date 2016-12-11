@@ -41,13 +41,12 @@ $(document).ready(function () {
       var tweetContent = tweetCompose.val().trim();
 
       var userInfo = {}
-        // save avatar image to pass into addTweet function
-        userInfo.avatarImgSrc = $('#dashboard-avatar-img').attr('src');
-        userInfo.userName = $('#dashboardUsername').val();
+      // save user info to pass into addTweet function
+      userInfo.avatarImgSrc = $('#dashboard-avatar-img').attr('src');
+      userInfo.userName = $('#dashboardUsername').text();
 
-        console.log(userInfo.userName);
       //pass veriable into function to add to stream
-      addTweet(tweetContent,userInfo.avatarImgSrc);
+      addTweet(tweetContent,userInfo.avatarImgSrc ,userInfo.userName);
 
 
 
@@ -57,17 +56,17 @@ $(document).ready(function () {
 
 
 
-  function addTweet(tweetContent,avatarImgSrc) {
+  function addTweet(tweetContent,avatarImgSrc,userName) {
     $('#stream').prepend(
 
       "<div class='tweet'>"+
         "<div class='content'>"+
-          "<img class='avatar' src= "+avatarImgSrc+" />"+
-          "<strong class='fullname'>My BFF</strong>"+
+          "<img class='avatar' src= "+ avatarImgSrc +" />"+
+          "<strong class='fullname'>"+ userName +"</strong>"+
           "<span class='username'>@mybff</span>"+
 
 
-          "<p class='tweet-text'>"+tweetContent+"</p>"+
+          "<p class='tweet-text'>"+ tweetContent +"</p>"+
 
 
           "<div class='tweet-actions'>"+
