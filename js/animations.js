@@ -57,6 +57,10 @@ $(document).ready(function () {
       // reset color and text count
       charCount.css('color', '#999' );
       charCount.text(140);
+      // rehide buttons and count
+      charCount.hide();
+      tweetSubmit.hide();
+      textArea.height('20.5px');
 
       //clear contents of tweet box
       $(tweetCompose).val('')
