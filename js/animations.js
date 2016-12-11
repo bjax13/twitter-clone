@@ -1,12 +1,21 @@
 var charCount = $('#char-count');
+var tweetSubmit = $("#tweet-submit");
 
 function tweetCountTracker(){
   var charTotal = 140 - $(this).val().length;
   charCount.text(charTotal);
   if (charTotal <= 10) {
     charCount.css('color', 'red');
+    tweetSubmit.prop('disabled', false);
+    if (charTotal<0) {
+      tweetSubmit.prop('disabled', true);
+    }
+  }else if (charTotal === 140) {
+    tweetSubmit.prop('disabled', true);
+
   }else {
     charCount.css('color', '#999');
+    tweetSubmit.prop('disabled', false);
   }
 }
 
@@ -14,8 +23,7 @@ function tweetCountTracker(){
 $(document).ready(function () {
 
 
-  //button tag for tweet button
-  var tweetSubmit = $("#tweet-submit");
+
   //tag for char-count
   var charCount = $('#char-count');
   //
