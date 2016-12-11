@@ -3,6 +3,11 @@ var charCount = $('#char-count');
 function tweetCountTracker(){
   var charTotal = 140 - $(this).val().length;
   charCount.text(charTotal);
+  if (charTotal <= 10) {
+    charCount.css('color', 'red');
+  }else {
+    charCount.css('color', '#999');
+  }
 }
 
 
@@ -49,7 +54,9 @@ $(document).ready(function () {
       //pass veriable into function to add to stream
       addTweet(tweetContent,userInfo.avatarImgSrc ,userInfo.fullName,userInfo.userName );
 
-
+      // reset color and text count
+      charCount.css('color', '#999' );
+      charCount.text(140);
 
       //clear contents of tweet box
       $(tweetCompose).val('')
