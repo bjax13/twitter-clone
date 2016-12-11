@@ -39,10 +39,15 @@ $(document).ready(function () {
       e.preventDefault(e);
       //save contents to veriable
       var tweetContent = tweetCompose.val().trim();
-      // save avatar image to pass into addTweet function
-      var avatarImgSrc = $('#dashboard-avatar-img').attr('src');
+
+      var userInfo = {}
+        // save avatar image to pass into addTweet function
+        userInfo.avatarImgSrc = $('#dashboard-avatar-img').attr('src');
+        userInfo.userName = $('#dashboardUsername').val();
+
+        console.log(userInfo.userName);
       //pass veriable into function to add to stream
-      addTweet(tweetContent,avatarImgSrc);
+      addTweet(tweetContent,userInfo.avatarImgSrc);
 
 
 
