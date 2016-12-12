@@ -168,6 +168,7 @@ body {
 
 	.tweet-actions {
 		text-align: right;
+		/*// display: none;*/
 	}
 		.tweet-actions ul {
 			list-style-type: none;
@@ -258,5 +259,3 @@ body {
 				top: 0;
 				left: 0;
 			}
-
-

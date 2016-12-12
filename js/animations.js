@@ -1,6 +1,7 @@
 var charCount = $('#char-count');
 var tweetSubmit = $("#tweet-submit");
 
+// char count and color items.
 function tweetCountTracker(){
   var charTotal = 140 - $(this).val().length;
   charCount.text(charTotal);
@@ -34,7 +35,7 @@ $(document).ready(function () {
   //hides the char-count #s and tweetSubmit button.
   charCount.hide();
   tweetSubmit.hide();
-  tweetActions.hide();
+  //tweetActions.hide();
 
   //When the user clicks on the textarea, the textarea should double in size and
   //the character count and Tweet buttons should be revealed.
@@ -75,15 +76,24 @@ $(document).ready(function () {
       $(tweetCompose).val('')
   })
 
+  // tweetMain.hover(
+  //   function () {
+  //     tweetActions.css('display', "block")
+  //   }, function () {
+  //     tweetActions.css('display', 'none');
+  //   }
+  // );
 
-  tweetMain.hover(
-  function() {
-    tweetActions.eq($(this).index()).show();
 
-  }, function() {
-    tweetActions.hide();
-  }
-);
+
+  // tweetMain.hover(
+  // function() {
+  //   tweetActions.eq($(this).index()).show();
+  //
+  // }, function() {
+  //   tweetActions.hide();
+  // }
+// );
 
   function addTweet(tweetContent,avatarImgSrc,fullName, userName) {
     $('#stream').prepend(
@@ -138,7 +148,7 @@ $(document).ready(function () {
                           "</div>"+
                         "</div>"
                   );
-      
+
 
       }
 
