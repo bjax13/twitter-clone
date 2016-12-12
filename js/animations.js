@@ -20,20 +20,21 @@ function tweetCountTracker(){
 }
 
 
+
 $(document).ready(function () {
-
-
-
   //tag for char-count
   var charCount = $('#char-count');
   //
   var textArea = $('.tweet-compose');
-  var tweetCompose = $('.tweet-compose')
+  var tweetCompose = $('.tweet-compose');
+  var tweetMain = $('.tweet');
+  var tweetActions = $('.tweet-actions');
 
 
   //hides the char-count #s and tweetSubmit button.
   charCount.hide();
   tweetSubmit.hide();
+  tweetActions.hide();
 
   //When the user clicks on the textarea, the textarea should double in size and
   //the character count and Tweet buttons should be revealed.
@@ -75,61 +76,70 @@ $(document).ready(function () {
   })
 
 
+  tweetMain.hover(
+  function() {
+    tweetActions.eq($(this).index()).show();
+
+  }, function() {
+    tweetActions.hide();
+  }
+);
 
   function addTweet(tweetContent,avatarImgSrc,fullName, userName) {
     $('#stream').prepend(
 
-      "<div class='tweet'>"+
-        "<div class='content'>"+
-          "<img class='avatar' src= "+ avatarImgSrc +" />"+
-          "<strong class='fullname'>"+ fullName + " " + "</strong>"+
-          "<span class='username'>"+ userName +"</span>"+
+                        "<div class='tweet'>"+
+                          "<div class='content'>"+
+                            "<img class='avatar' src= "+ avatarImgSrc +" />"+
+                            "<strong class='fullname'>"+ fullName + " " + "</strong>"+
+                            "<span class='username'>"+ userName +"</span>"+
 
 
-          "<p class='tweet-text'>"+ tweetContent +"</p>"+
+                            "<p class='tweet-text'>"+ tweetContent +"</p>"+
 
 
-          "<div class='tweet-actions'>"+
-            "<ul>"+
-              "<li><span class='icon action-reply'></span> Reply</li>"+
-              "<li><span class='icon action-retweet'></span> Retweet</li>"+
-              "<li><span class='icon action-favorite'></span> Favorite</li>"+
-              "<li><span class='icon action-more'></span> More</li>"+
-            "</ul>"+
-          "</div>"+
+                            "<div class='tweet-actions'>"+
+                              "<ul>"+
+                                "<li><span class='icon action-reply'></span> Reply</li>"+
+                                "<li><span class='icon action-retweet'></span> Retweet</li>"+
+                                "<li><span class='icon action-favorite'></span> Favorite</li>"+
+                                "<li><span class='icon action-more'></span> More</li>"+
+                              "</ul>"+
+                            "</div>"+
 
 
-          "<div class='stats'>"+
-            "<div class='retweets'>"+
-              "<p class='num-retweets'>30</p>"+
-              "<p>RETWEETS</p>"+
-            "</div>"+
-            "<div class='favorites'>"+
-              "<p class='num-favorites'>6</p>"+
-              "<p>FAVORITES</p>"+
-            "</div>"+
-            "<div class='users-interact'>"+
-              "<div>"+
+                            "<div class='stats'>"+
+                              "<div class='retweets'>"+
+                                "<p class='num-retweets'>30</p>"+
+                                "<p>RETWEETS</p>"+
+                              "</div>"+
+                              "<div class='favorites'>"+
+                                "<p class='num-favorites'>6</p>"+
+                                "<p>FAVORITES</p>"+
+                              "</div>"+
+                              "<div class='users-interact'>"+
+                                "<div>"+
 
 
-                "<img src='img/alagoon.jpg' />"+
-                "<img src='img/vklimenko.jpg' />"+
-              "</div>"+
-            "</div>"+
+                                  "<img src='img/alagoon.jpg' />"+
+                                  "<img src='img/vklimenko.jpg' />"+
+                                "</div>"+
+                              "</div>"+
 
 
-            "<div class='time'>"+
-              "1:04 PM - 19 Sep 13"+
-            "</div>"+
-          "</div>"+
-          "<div class='reply'>"+
-            "<img class='avatar' src='img/alagoon.jpg' />"+
-            "<textarea class='tweet-compose' placeholder='Reply to @mybff'/></textarea>" +
-          "</div>"+
-        "</div>"+
-      "</div>"
+                              "<div class='time'>"+
+                                "1:04 PM - 19 Sep 13"+
+                              "</div>"+
+                            "</div>"+
+                            "<div class='reply'>"+
+                              "<img class='avatar' src='img/alagoon.jpg' />"+
+                              "<textarea class='tweet-compose' placeholder='Reply to @mybff'/></textarea>" +
+                            "</div>"+
+                          "</div>"+
+                        "</div>"
+                  );
+      
 
-                );
       }
 
 
